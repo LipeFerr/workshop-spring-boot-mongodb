@@ -1,12 +1,12 @@
 package com.felipealves.workshopmongo.services;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.felipealves.workshopmongo.domain.User;
+import com.felipealves.workshopmongo.dto.UserDTO;
 import com.felipealves.workshopmongo.repository.UserRepository;
 import com.felipealves.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -29,5 +29,13 @@ public class UserService {
 		} catch (RuntimeException e) {
 			throw new ObjectNotFoundException("Objeto não encontrado");
 		}
+	}
+	
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
 	}
 }
