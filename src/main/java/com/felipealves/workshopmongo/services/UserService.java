@@ -1,6 +1,10 @@
 package com.felipealves.workshopmongo.services;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
+
+import javax.security.auth.x500.X500Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
